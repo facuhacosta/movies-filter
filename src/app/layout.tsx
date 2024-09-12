@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@mui/material/styles";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import theme from "@/themes/theme";
+import Providers from "./providers";
+import NavBar from "@/components/organisms/NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,10 +16,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
-    <html lang="en">
+    <html lang="en" >
       <body>
-        {children}
+        <Providers>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <NavBar />
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </Providers>
       </body>
     </html>
   );

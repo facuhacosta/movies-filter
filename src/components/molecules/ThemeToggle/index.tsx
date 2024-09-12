@@ -1,0 +1,23 @@
+'use client'
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { useColorScheme } from "@mui/material/styles";
+
+const ThemeToggle = () => {
+  const { mode, setMode } = useColorScheme();
+
+  return (
+      <Select
+        value={mode ? mode : 'system'}
+        onChange={(event) =>
+          setMode(event.target.value as 'system' | 'light' | 'dark')
+        }
+      >
+        <MenuItem value="system">System</MenuItem>
+        <MenuItem value="light">Light</MenuItem>
+        <MenuItem value="dark">Dark</MenuItem>
+      </Select>
+  );
+}
+
+export default ThemeToggle
