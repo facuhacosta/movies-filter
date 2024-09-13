@@ -1,7 +1,4 @@
-'use client'
-import GenreListSSr from "@/components/organisms/GenreList"
-import Grid from "@mui/material/Grid2"
-import { dehydrate, HydrationBoundary, QueryClient, useQuery } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { fetchMovieDetails } from "@/services/tmdb.service";
 import ClientMovieDetails from "./clientMovieDetails";
 
@@ -12,6 +9,8 @@ const movieDetails = async ({ params } : {params: { movieDetails: string[]}}) =>
     defaultOptions: {
       queries: {
         staleTime: 60 * 1000,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
       },
     },
   })

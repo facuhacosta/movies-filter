@@ -9,9 +9,9 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLDivElement>(
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries, observer) => {
+      onIntersect(elementToObserve)
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          onIntersect(elementToObserve)
           setIsIntersecting(true) 
           if (stopOnIntersect) observer.observe(elementToObserve.current as HTMLElement)
         }

@@ -2,7 +2,7 @@ import { fetchMoviesByGenre } from "@/services/tmdb.service"
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
 import ClientGenreList from "./clientGenreList"
 
-const GenreListSSr = async ({genreIds}: {genreIds: number[]}) => {
+const GenreListSSr = async ({genreIds, title}: {genreIds: number[], title: string}) => {
 
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -23,7 +23,7 @@ const GenreListSSr = async ({genreIds}: {genreIds: number[]}) => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ClientGenreList genreIds={genreIds} />
+      <ClientGenreList genreIds={genreIds} title={title} />
     </HydrationBoundary>
   )
 }

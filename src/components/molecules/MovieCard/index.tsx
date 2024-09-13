@@ -6,12 +6,11 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Movie from '@/models/movie.model';
 import Rating from '@mui/material/Rating';
-import Link from 'next/link';
 import { useIntersectionObserver } from '@/hooks/useIntersectorObserver';
 
 const MovieCard = ({movieDetails}: {movieDetails: Movie}) => {
 
-  const { elementToObserve, isIntesecting } = useIntersectionObserver<HTMLImageElement>(() => {})
+  const { elementToObserve, isIntesecting } = useIntersectionObserver<HTMLImageElement>(() => {}, true)
 
   const BASE_PATH = "https://image.tmdb.org/t/p/w300"
 

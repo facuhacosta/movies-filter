@@ -12,6 +12,7 @@ const ThemeToggle = () => {
         onChange={(event) =>
           setMode(event.target.value as 'system' | 'light' | 'dark')
         }
+        inputProps={{ 'aria-label': 'select-mode' }}
       >
         <MenuItem value="system">System</MenuItem>
         <MenuItem value="light">Light</MenuItem>

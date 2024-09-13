@@ -92,11 +92,11 @@ const ClientMovieDetails = ({movieId}:{movieId: number}) => {
             </CardContent>
           </Card>
         </Grid>
+        <Grid size={12}>
+          <ClientGenreList title="Similar Movies" genreIds={detailedMovie.genres.map(({id}) => id)} />
+        </Grid>
       </>
       }
-      <Grid size={12}>
-        <ClientGenreList genreIds={[28]} />
-      </Grid>
     </Grid>
   )
 }

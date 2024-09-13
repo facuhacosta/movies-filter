@@ -6,23 +6,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import StyledInputBase from '@/components/atoms/StyledInputBase';
 import SearchIconWrapper from '@/components/atoms/SearchIconWrapper';
 import Search from '@/components/atoms/Search';
-import MobileMenu from '@/components/molecules/MobileMenu';
 import ThemeToggle from '@/components/molecules/ThemeToggle';
-import { useQuery } from '@tanstack/react-query';
-import { fetchAllGenres } from '@/services/tmdb.service';
-
+import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const NavBar = () => {
+  const router = useRouter()
 
-  const { data: Genres = [] } = useQuery({
-    queryKey: ['movies-genres'],
-    queryFn: fetchAllGenres,
-  })
+  const handleSubmitSearch = (value: string) => {
+    router.push(`/search-results?search=${value}`)
+  }
   
   return (
     <AppBar position="static">
       <Toolbar>
-        <MobileMenu />
+        <Link href="/">
+          <HomeOutlinedIcon />
+        </Link>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -30,6 +31,9 @@ const NavBar = () => {
           <StyledInputBase
             placeholder="Search…"
             inputProps={{ 'aria-label': 'search' }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') handleSubmitSearch(event.currentTarget.value)
+            }}
           />
         </Search>
         <Box sx={{ flexGrow: 1 }} />

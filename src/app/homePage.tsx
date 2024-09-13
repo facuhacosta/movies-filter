@@ -4,9 +4,9 @@ const HomePage = () => {
   
   return (
     <div>
-      <GenreListSSr genreId={28} />
-      <GenreListSSr genreId={10751} />
-      <GenreListSSr genreId={14} />
+      <GenreListSSr genreIds={[28]} title='Action' />
+      <GenreListSSr genreIds={[10751]} title='Comedy'/>
+      <GenreListSSr genreIds={[14]} title='Dramma' />
     </div>
   )
 }
