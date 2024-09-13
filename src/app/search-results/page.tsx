@@ -2,7 +2,7 @@ import { fetchAllMovies } from '@/services/tmdb.service';
 import { QueryClient } from '@tanstack/react-query';
 import ClientSearchResults from './clientSearchResults';
 
-function SearchResultsPage({ searchParams }: { searchParams: { search: string }}) {
+const SearchResultsPage = async ({ searchParams }: { searchParams: { search: string }}) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
