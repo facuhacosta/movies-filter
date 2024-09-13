@@ -1,5 +1,6 @@
-'use client'
-import { styled } from "@mui/material/styles";
+'use client';
+
+import { styled } from '@mui/material/styles';
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -11,4 +12,4 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-export default SearchIconWrapper
+export default SearchIconWrapper;

@@ -1,5 +1,6 @@
-'use client'
-import { alpha, styled } from "@mui/material/styles";
+'use client';
+
+import { alpha, styled } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -17,4 +18,4 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-export default Search
+export default Search;

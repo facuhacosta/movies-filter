@@ -1,4 +1,4 @@
-import Genre from "./genders.model";
+import Genre from './genders.model';
 
 export default interface DetailedMovie {
   id: number;
@@ -12,4 +12,4 @@ export default interface DetailedMovie {
   runtime: number;
   vote_average: number;
   genres: Genre[]
-}
+};

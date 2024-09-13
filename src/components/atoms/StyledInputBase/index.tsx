@@ -1,5 +1,6 @@
-'use client'
-import InputBase from "@mui/material/InputBase";
+'use client';
+
+import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -19,4 +20,4 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default StyledInputBase
+export default StyledInputBase;

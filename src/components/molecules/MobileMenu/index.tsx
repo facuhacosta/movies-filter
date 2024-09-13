@@ -1,12 +1,12 @@
-'use client'
-import Box from "@mui/material/Box"
-import IconButton from "@mui/material/IconButton"
+'use client';
+
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { useState } from "react";
-import MobileMenuTab from "@/components/atoms/MobileMenuTab";
+import { useState } from 'react';
+import MobileMenuTab from '@/components/atoms/MobileMenuTab';
 
-
-const MobileMenu = () => {
+function MobileMenu() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -39,7 +39,7 @@ const MobileMenu = () => {
         handleMobileMenuClose={handleMobileMenuClose}
       />
     </Box>
-  )
+  );
 }
 
 export default MobileMenu;

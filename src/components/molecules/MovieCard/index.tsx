@@ -8,18 +8,18 @@ import Movie from '@/models/movie.model';
 import Rating from '@mui/material/Rating';
 import { useIntersectionObserver } from '@/hooks/useIntersectorObserver';
 
-const MovieCard = ({movieDetails}: {movieDetails: Movie}) => {
+function MovieCard({ movieDetails }: {movieDetails: Movie}) {
+  const { elementToObserve, isIntesecting } = useIntersectionObserver<HTMLImageElement>(() => {}, true);
 
-  const { elementToObserve, isIntesecting } = useIntersectionObserver<HTMLImageElement>(() => {}, true)
-
-  const BASE_PATH = "https://image.tmdb.org/t/p/w300"
+  const BASE_PATH = 'https://image.tmdb.org/t/p/w300';
 
   return (
     <Card sx={{ maxWidth: 250 }} ref={elementToObserve}>
       <CardActionArea href={`/${movieDetails.id}/${movieDetails.title}`}>
-        <div className='w-60 h-96 flex items-center m-auto'>
+        <div className="w-60 h-96 flex items-center m-auto">
           {
-            isIntesecting &&
+            isIntesecting
+            && (
             <CardMedia
               component="img"
               height="375"
@@ -27,13 +27,14 @@ const MovieCard = ({movieDetails}: {movieDetails: Movie}) => {
               image={`${BASE_PATH}${movieDetails.poster_path}`}
               alt="green iguana"
             />
+            )
           }
         </div>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" noWrap>
             {movieDetails.title}
           </Typography>
-          <Typography variant="body2" className='line-clamp-5' sx={{ color: 'text.secondary', height: '100px' }}>
+          <Typography variant="body2" className="line-clamp-5" sx={{ color: 'text.secondary', height: '100px' }}>
             {movieDetails.overview}
           </Typography>
         </CardContent>
@@ -50,4 +51,4 @@ const MovieCard = ({movieDetails}: {movieDetails: Movie}) => {
   );
 }
 
-export default MovieCard
+export default MovieCard;

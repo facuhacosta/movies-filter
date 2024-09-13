@@ -1,7 +1,7 @@
-import Badge from "@mui/material/Badge"
-import IconButton from "@mui/material/IconButton"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MailIcon from '@mui/icons-material/Mail';
 
@@ -12,7 +12,9 @@ interface IMobileMenuTab {
   handleMobileMenuClose: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const MobileMenuTab = ({ mobileMenuId, mobileMoreAnchorEl, isMobileMenuOpen, handleMobileMenuClose }: IMobileMenuTab) => {
+function MobileMenuTab({
+  mobileMenuId, mobileMoreAnchorEl, isMobileMenuOpen, handleMobileMenuClose,
+}: IMobileMenuTab) {
   return (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -50,7 +52,7 @@ const MobileMenuTab = ({ mobileMenuId, mobileMoreAnchorEl, isMobileMenuOpen, han
         <p>Notifications</p>
       </MenuItem>
     </Menu>
-  )
+  );
 }
 
-export default MobileMenuTab
+export default MobileMenuTab;

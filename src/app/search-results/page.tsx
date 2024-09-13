@@ -1,9 +1,8 @@
-import { fetchAllMovies } from "@/services/tmdb.service"
-import { QueryClient } from "@tanstack/react-query"
-import ClientSearchResults from "./clientSearchResults"
+import { fetchAllMovies } from '@/services/tmdb.service';
+import { QueryClient } from '@tanstack/react-query';
+import ClientSearchResults from './clientSearchResults';
 
-const SearchResultsPage = async ({ searchParams }: { searchParams: { search: string }}) => {
-  
+function SearchResultsPage({ searchParams }: { searchParams: { search: string }}) {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -12,17 +11,17 @@ const SearchResultsPage = async ({ searchParams }: { searchParams: { search: str
         refetchOnWindowFocus: false,
       },
     },
-  })
+  });
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['movies-all'],
     queryFn: fetchAllMovies,
     initialPageParam: 1,
     getNextPageParam: (lastPage, _) => lastPage.page + 1,
-    pages: 4
-  })
+    pages: 4,
+  });
 
-  return <ClientSearchResults startValue={searchParams.search} />
+  return <ClientSearchResults startValue={searchParams.search} />;
 }
 
-export default SearchResultsPage
+export default SearchResultsPage;
