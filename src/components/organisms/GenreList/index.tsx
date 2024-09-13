@@ -2,7 +2,7 @@ import { fetchMoviesByGenre } from '@/services/tmdb.service';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import ClientGenreList from './clientGenreList';
 
-function GenreListSSr({ genreIds, title }: {genreIds: number[], title: string}) {
+const GenreListSSr = async ({ genreIds, title }: {genreIds: number[], title: string}) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
