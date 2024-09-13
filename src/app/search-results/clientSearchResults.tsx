@@ -19,8 +19,6 @@ const ClientSearchResults = ({startValue}: {startValue: string}) => {
     }
   }
 
-  console.log(allMovies)
-
   // const { elementToObserve } = useIntersectionObserver<HTMLDivElement>(handleOnIntersect)
   
   return (

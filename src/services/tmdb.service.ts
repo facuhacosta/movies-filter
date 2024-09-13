@@ -88,7 +88,6 @@ export const fetchMovieDetails = async (movieId: number) => {
   return await axios.request<DetailedMovie>(options)
     .then(async res => {
       if (res.status !== 200) throw new Error("Error Fetching Data!");
-      console.log(res, options.url)
       return res.data
     })
 }

@@ -15,8 +15,6 @@ const movieDetails = async ({ params } : {params: { movieDetails: string[]}}) =>
     },
   })
 
-  console.log(+params.movieDetails[0])
-
   await queryClient.prefetchQuery({
     queryKey: [`${+params.movieDetails[0]}-details`],
     queryFn: async () => await fetchMovieDetails(+params.movieDetails[0])
